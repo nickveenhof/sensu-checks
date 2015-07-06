@@ -11,7 +11,6 @@ include_recipe "logrotate"
 
 include_recipe "sensu::default"
 
-
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/http/check-http.rb"
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb"
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/cpu-metrics.rb"
@@ -21,7 +20,7 @@ sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/ma
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/uptime-metrics.py"
 
 sensu_plugin "check-banner.rb"
-sensu_plugin "check-mem.rb"
+sensu_plugin "check-mem.sh"
 
 sensu_plugin "check-socket.rb" do
   source "check-banner.rb"
