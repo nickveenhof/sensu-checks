@@ -11,6 +11,35 @@ include_recipe "logrotate"
 
 include_recipe "sensu::default"
 
+
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/http/check-http.rb"
+
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/cpu-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/interface-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/uptime-metrics.rb"
+
+sensu_plugin "check-banner.rb"
+sensu_plugin "check-mem.rb"
+
+sensu_plugin "check-socket.rb" do
+  source "check-banner.rb"
+end
+
+sensu_plugin "check-dns.rb" do
+  source_directory "plugins"
+end
+
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/handlers/notification/pagerduty.rb" do
+  asset_directory File.join(node.sensu.directory, "handlers")
+end
+
+sensu_asset "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/extensions/checks/system_profile.rb" do
+  asset_directory File.join(node.sensu.directory, "extensions")
+end
+
 sensu_client node.name do
   address node["ipaddress"]
   subscriptions ["all"]
