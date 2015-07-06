@@ -21,11 +21,15 @@ include_recipe "sensu::default"
 
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/http/check-http.rb"
 
-sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/haproxy/check-haproxy.rb" do
-  action :create_if_missing
-end
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/cpu-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/interface-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/uptime-metrics.rb"
 
 sensu_plugin "check-banner.rb"
+sensu_plugin "check-mem.rb"
 
 sensu_plugin "check-socket.rb" do
   source "check-banner.rb"
