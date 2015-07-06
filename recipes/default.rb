@@ -19,7 +19,7 @@ sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/ma
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-metrics.rb"
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/interface-metrics.rb"
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb"
-sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/uptime-metrics.rb"
+sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/uptime-metrics.py"
 
 sensu_plugin "check-banner.rb"
 sensu_plugin "check-mem.rb"
