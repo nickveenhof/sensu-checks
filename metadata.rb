@@ -1,7 +1,9 @@
 name             'sensu-checks'
-maintainer       'YOUR_COMPANY_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Nick Veenhof'
+maintainer_email 'nick.veenhof@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures sensu-checks'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
+
+depends          'sensu'
