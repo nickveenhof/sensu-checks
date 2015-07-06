@@ -13,7 +13,6 @@ include_recipe "sensu::default"
 
 
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/http/check-http.rb"
-
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb"
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/cpu-metrics.rb"
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-metrics.rb"
@@ -43,14 +42,6 @@ end
 sensu_client node.name do
   address node["ipaddress"]
   subscriptions ["all"]
-end
-
-sensu_check "redis_process" do
-  command "check-procs.rb -p redis-server -C 1"
-  handlers ["default"]
-  subscribers ["redis"]
-  interval 30
-  additional(:notification => "Redis is not running", :occurrences => 5)
 end
 
 include_recipe "sensu::client_service"
