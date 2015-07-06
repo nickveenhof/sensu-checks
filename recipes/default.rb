@@ -19,11 +19,12 @@ sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/ma
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb"
 sensu_plugin "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/uptime-metrics.py"
 
-sensu_plugin "check-banner.rb"
-sensu_plugin "check-mem.sh"
+sensu_plugin "check-mem.sh" do
+	source_directory "plugins"
+end
 
 sensu_plugin "check-socket.rb" do
-  source "check-banner.rb"
+	source_directory "plugins"
 end
 
 sensu_plugin "check-dns.rb" do
